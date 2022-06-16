@@ -13,5 +13,6 @@ namespace ProjektGuitarWPF
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }

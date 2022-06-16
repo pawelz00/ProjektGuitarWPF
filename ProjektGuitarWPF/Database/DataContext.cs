@@ -1,0 +1,147 @@
+﻿using Microsoft.EntityFrameworkCore;
+using ProjektGuitarWPF.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjektGuitarWPF.Database
+{
+    public class DataContext : DbContext
+    {
+        public DataContext()
+        {
+        }
+        public DataContext(DbContextOptions options) : base(options) { }
+
+
+        public DbSet<GuitarType> GuitarTypes { get; set; }
+        public DbSet<Producer> Producers { get; set; }
+        public DbSet<Strings> Strings { get; set; }
+        public DbSet<Guitar> Guitars { get; set; }
+        public DbSet<Guitarist> Guitarists { get; set; }
+        public DbSet<GuitaristGuitar> GuitaristsGuitars { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<GuitaristGuitar>()
+                .HasKey(gg => new { gg.GuitarId, gg.GuitaristId });
+            modelBuilder.Entity<GuitaristGuitar>()
+                .HasOne(g => g.Guitar)
+                .WithMany(gg => gg.GuitaristsGuitars)
+                .HasForeignKey(g => g.GuitarId);
+            modelBuilder.Entity<GuitaristGuitar>()
+                .HasOne(g => g.Guitarist)
+                .WithMany(gg => gg.GuitaristsGuitars)
+                .HasForeignKey(g => g.GuitaristId);
+
+            modelBuilder.Entity<Strings>().HasData(
+                new Strings
+                {
+                    Id = 1,
+                    Name = "Nylon"
+                },
+                new Strings
+                {
+                    Id = 2,
+                    Name = "Carbon"
+                },
+                new Strings
+                {
+                    Id = 3,
+                    Name = "Pro steel"
+                },
+                new Strings
+                {
+                    Id = 4,
+                    Name = "Pure nickel"
+                }
+            );
+            modelBuilder.Entity<Producer>().HasData(
+                new Producer
+                {
+                    Id = 1,
+                    Name = "Fender"
+                },
+                new Producer
+                {
+                    Id = 2,
+                    Name = "Gibson"
+                },
+                new Producer
+                {
+                    Id = 3,
+                    Name = "Taylor"
+                },
+                new Producer
+                {
+                    Id = 4,
+                    Name = "Martin"
+                },
+                new Producer
+                {
+                    Id = 5,
+                    Name = "PRS"
+                },
+                new Producer
+                {
+                    Id = 6,
+                    Name = "Ibanez"
+                },
+                new Producer
+                {
+                    Id = 7,
+                    Name = "Yamaha"
+                },
+                new Producer
+                {
+                    Id = 8,
+                    Name = "Epiphone"
+                },
+                new Producer
+                {
+                    Id = 9,
+                    Name = "Suhr"
+                },
+                new Producer
+                {
+                    Id = 10,
+                    Name = "Rickenbacker"
+                }
+            );
+            modelBuilder.Entity<GuitarType>().HasData(
+                new GuitarType
+                {
+                    Id = 1,
+                    Name = "Electric"
+                },
+                new GuitarType
+                {
+                    Id = 2,
+                    Name = "Acoustic"
+                },
+                new GuitarType
+                {
+                    Id = 3,
+                    Name = "Classical"
+                },
+                new GuitarType
+                {
+                    Id = 4,
+                    Name = "Electro acoustic"
+                },
+                new GuitarType
+                {
+                    Id = 5,
+                    Name = "Classical Acoustic-Electric"
+                }
+            );
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            string con = @"Server=(localdb)\MSSQLLocalDB;Database=wpfguitarproject;Integrated Security=true";
+            optionsBuilder.UseSqlServer(con);
+            base.OnConfiguring(optionsBuilder);
+        }
+    }
+}
