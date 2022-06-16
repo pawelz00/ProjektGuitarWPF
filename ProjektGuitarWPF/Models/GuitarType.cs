@@ -1,4 +1,6 @@
-﻿namespace guitarapi.Models
+﻿using System.Collections.Generic;
+
+namespace ProjektGuitarWPF.Models
 {
     public class GuitarType
     {

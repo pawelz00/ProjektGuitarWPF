@@ -1,4 +1,4 @@
-﻿namespace guitarapi.Models
+﻿namespace ProjektGuitarWPF.Models
 {
     public class GuitaristGuitar
     {

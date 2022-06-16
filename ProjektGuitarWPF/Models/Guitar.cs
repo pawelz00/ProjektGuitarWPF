@@ -1,6 +1,8 @@
-﻿using guitarapi.Dto;
+﻿
+using System;
+using System.Collections.Generic;
 
-namespace guitarapi.Models
+namespace ProjektGuitarWPF.Models
 {
     public class Guitar
     {
