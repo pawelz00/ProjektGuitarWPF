@@ -137,11 +137,5 @@ namespace ProjektGuitarWPF.Database
                 }
             );
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            string con = @"Server=(localdb)\MSSQLLocalDB;Database=wpfguitarproject;Integrated Security=true";
-            optionsBuilder.UseSqlServer(con);
-            base.OnConfiguring(optionsBuilder);
-        }
     }
 }

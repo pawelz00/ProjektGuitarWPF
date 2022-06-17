@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ProjektGuitarWPF.Components"
+             xmlns:local="clr-namespace:ProjektGuitarWPF.Components" xmlns:viewmodels="clr-namespace:ProjektGuitarWPF.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:GuitaristsListingViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -16,7 +16,15 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" FontSize="24" TextAlignment="Center" Margin="0 20 0 0" FontWeight="Bold">LISTA GITARZYSTÓW</TextBlock>
-                <ListView Grid.Row="1"></ListView>
+                <ListView Grid.Row="1" ItemsSource="{Binding guitaristsRecords}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Id" Width="50" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                            <GridViewColumn Header="FullName" Width="150" DisplayMemberBinding="{Binding FullName}"></GridViewColumn>
+                            <GridViewColumn Header="DateOfBirth" Width="100" DisplayMemberBinding="{Binding DateOfBirth}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
                 <Button Grid.Row="2" FontSize="24">Odśwież</Button>
             </Grid>
         </Border>

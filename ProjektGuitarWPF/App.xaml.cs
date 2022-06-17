@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektGuitarWPF.Services.Providers;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,6 +14,6 @@ namespace ProjektGuitarWPF
     /// </summary>
     public partial class App : Application
     {
-        
+        //IGuitarProvider guitarProvider = new GuitarProvider();
     }
 }

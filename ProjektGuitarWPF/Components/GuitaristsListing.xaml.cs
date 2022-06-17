@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektGuitarWPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace ProjektGuitarWPF.Components
         public GuitaristsListing()
         {
             InitializeComponent();
+            this.DataContext = new GuitaristsListingViewModel();
         }
     }
 }
