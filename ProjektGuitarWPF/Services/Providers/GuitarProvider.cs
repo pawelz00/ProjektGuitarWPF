@@ -33,5 +33,14 @@ namespace ProjektGuitarWPF.Services.Providers
                 return context.Guitars.Include(p => p.Producer).Include(s => s.Strings).Include(gt => gt.Type).ToList();
             }
         }
+
+        public void DeleteGuitar(Guitar guitar)
+        {
+            using (DataContext context = contextFactory.CreateDbContext())
+            {
+                context.Guitars.Remove(guitar);
+                context.SaveChanges();
+            }
+        }
     }
 }

@@ -19,6 +19,13 @@
                 <ListView Grid.Row="1" ItemsSource="{Binding guitaristsRecords}">
                     <ListView.View>
                         <GridView>
+                            <GridViewColumn Header=" " >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding Include}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                             <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
                             <GridViewColumn Header="FullName" Width="auto" DisplayMemberBinding="{Binding FullName}"></GridViewColumn>
                             <GridViewColumn Header="DateOfBirth" Width="auto" DisplayMemberBinding="{Binding DateOfBirth}"></GridViewColumn>
@@ -26,7 +33,14 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button Command="{Binding RefreshCommand}"  Grid.Row="2" FontSize="24" Content="Odśwież"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Width="200" Height="75" Command="{Binding RefreshCommand}" Grid.Column="0" FontSize="24" Content="Odśwież"/>
+                    <Button Width="200" Height="75" Command ="{Binding DeleteGuitaristsCommand}" Grid.Column="1" FontSize="24" Content="Usuń zaznaczone"/>
+                </Grid>
             </Grid>
         </Border>
     </Grid>

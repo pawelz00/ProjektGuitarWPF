@@ -37,6 +37,15 @@ namespace ProjektGuitarWPF.Services.Providers
             }
         }
 
+        public void DeleteGuitarist(Guitarist guitarist)
+        {
+            using (DataContext context = contextFactory.CreateDbContext())
+            {
+                context.Guitarists.Remove(guitarist);
+                context.SaveChanges();
+            }
+        }
+
         public List<Guitarist> GetAllGuitarists()
         {
             using (DataContext context = contextFactory.CreateDbContext())

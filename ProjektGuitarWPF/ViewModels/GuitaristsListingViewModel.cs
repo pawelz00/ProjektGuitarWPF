@@ -1,4 +1,5 @@
 ﻿using ProjektGuitarWPF.Database;
+using ProjektGuitarWPF.Models;
 using ProjektGuitarWPF.Models.Records;
 using ProjektGuitarWPF.Services.Providers;
 using ProjektGuitarWPF.ViewModels.Commands;
@@ -18,9 +19,11 @@ namespace ProjektGuitarWPF.ViewModels
         public ObservableCollection<GuitaristRecord> guitaristsRecords { get; } = new ObservableCollection<GuitaristRecord>();
         public GuitaristRecord GuitaristRecord { get; set; }
         public ICommand RefreshCommand { get; set; }
+        public ICommand DeleteGuitaristsCommand { get; set; }
 
         public GuitaristsListingViewModel()
         {
+            DeleteGuitaristsCommand = new RelayCommand(DeleteGuitarists);
             RefreshCommand = new RelayCommand(Refresh);
             this.provider = new GuitaristProvider(new DbContextFactory());
             GetAll();
@@ -45,6 +48,17 @@ namespace ProjektGuitarWPF.ViewModels
         {
             guitaristsRecords.Clear();
             GetAll();
+        }
+
+        public void DeleteGuitarists()
+        {
+            var guitaristsToDelete = guitaristsRecords.Where(x => x.Include).ToList();
+
+            foreach (var guitarist in guitaristsToDelete)
+            {
+                provider.DeleteGuitarist(new Guitarist() { Id = guitarist.Id });
+            }
+            Refresh();
         }
     }
 }

@@ -20,9 +20,11 @@ namespace ProjektGuitarWPF.ViewModels
         public ObservableCollection<GuitarRecord> guitarRecords { get; } = new ObservableCollection<GuitarRecord>();
         public GuitarRecord GuitarRecord { get; set; }
         public ICommand RefreshCommand { get; set; }
+        public ICommand DeleteGuitarsCommand { get; set; }
 
         public GuitarsListingViewModel()
         {
+            DeleteGuitarsCommand = new RelayCommand(DeleteGuitars);
             RefreshCommand = new RelayCommand(Refresh);
             this.provider = new GuitarProvider(new DbContextFactory());
             GetAll();
@@ -51,5 +53,15 @@ namespace ProjektGuitarWPF.ViewModels
             GetAll();
         }
 
+        public void DeleteGuitars()
+        {
+            var guitarsToDelete = guitarRecords.Where(x => x.Include).ToList();
+
+            foreach(var guitar in guitarsToDelete)
+            {
+                provider.DeleteGuitar(new Guitar() { Id = guitar.Id});
+            }
+            Refresh();
+        }
     }
 }

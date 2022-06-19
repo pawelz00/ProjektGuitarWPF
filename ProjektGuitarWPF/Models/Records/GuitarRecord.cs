@@ -10,6 +10,16 @@ namespace ProjektGuitarWPF.Models.Records
 {
     public class GuitarRecord : ViewModelBase
     {
+        private bool include;
+        public bool Include
+        {
+            get => include;
+            set
+            {
+                include = value;
+                OnPropertyChanged("Include");
+            }
+        }
         private int _id;
         public int Id
         {
@@ -62,18 +72,18 @@ namespace ProjektGuitarWPF.Models.Records
             set { producerId = value; OnPropertyChanged("ProducerId"); }
         }
 
-        private ObservableCollection<GuitarRecord> _guitarRecords;
-        public ObservableCollection<GuitarRecord> GuitarRecords
-        {
-            get
-            {
-                return _guitarRecords;
-            }
-            set
-            {
-                _guitarRecords = value;
-                OnPropertyChanged("GuitarRecords");
-            }
-        }
+        //private ObservableCollection<GuitarRecord> _guitarRecords;
+        //public ObservableCollection<GuitarRecord> GuitarRecords
+        //{
+        //    get
+        //    {
+        //        return _guitarRecords;
+        //    }
+        //    set
+        //    {
+        //        _guitarRecords = value;
+        //        OnPropertyChanged("GuitarRecords");
+        //    }
+        //}
     }
 }

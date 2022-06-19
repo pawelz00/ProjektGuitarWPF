@@ -11,5 +11,6 @@ namespace ProjektGuitarWPF.Services.Providers
     {
         List<Guitarist> GetAllGuitarists();
         void CreateGuitarist(int guitarId, Guitarist guitarist);
+        void DeleteGuitarist(Guitarist guitarist);
     }
 }
