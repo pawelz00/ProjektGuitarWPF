@@ -18,14 +18,16 @@
                 <ListView Grid.Row="1" ItemsSource="{Binding guitarRecords}">
                     <ListView.View>
                         <GridView>
+                            <GridViewColumn Header="Id" Width="50" DisplayMemberBinding="{Binding Id}"/>
                             <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}" />
                             <GridViewColumn Header="Created" Width="130" DisplayMemberBinding="{Binding Created}" />
-                            <GridViewColumn Header="ProducerId" Width="70" DisplayMemberBinding="{Binding ProducerId}" />
+                            <GridViewColumn Header="Producer" Width="70" DisplayMemberBinding="{Binding ProducerId}" />
+                            <GridViewColumn Header="Type" Width="70" DisplayMemberBinding="{Binding TypeId}" />
+                            <GridViewColumn Header="Strings" Width="70" DisplayMemberBinding="{Binding StringsId}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
-                
-                <Button Grid.Row="2" FontSize="24">Odśwież</Button>
+                <Button Command="{Binding RefreshCommand}" Grid.Row="2" FontSize="24" Content="Odśwież"/>
             </Grid>
         </Border>
     </Grid>

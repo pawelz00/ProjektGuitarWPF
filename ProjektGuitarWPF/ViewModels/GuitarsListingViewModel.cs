@@ -2,6 +2,7 @@
 using ProjektGuitarWPF.Models;
 using ProjektGuitarWPF.Models.Records;
 using ProjektGuitarWPF.Services.Providers;
+using ProjektGuitarWPF.ViewModels.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,12 +16,14 @@ namespace ProjektGuitarWPF.ViewModels
     public class GuitarsListingViewModel : ViewModelBase
     {
         private IGuitarProvider provider;
-        private ICommand _refreshData;
+
         public ObservableCollection<GuitarRecord> guitarRecords { get; } = new ObservableCollection<GuitarRecord>();
         public GuitarRecord GuitarRecord { get; set; }
+        public ICommand RefreshCommand { get; set; }
 
         public GuitarsListingViewModel()
         {
+            RefreshCommand = new RelayCommand(Refresh);
             this.provider = new GuitarProvider(new DbContextFactory());
             GetAll();
         }
@@ -35,20 +38,18 @@ namespace ProjektGuitarWPF.ViewModels
                     Id = guitar.Id,
                     Name = guitar.Name,
                     Created = guitar.ReleaseDate,
-                    TypeId = guitar.TypeId,
-                    ProducerId = guitar.ProducerId,
-                    StringsId = guitar.StringsId
+                    TypeId = guitar.Type.Name,
+                    ProducerId = guitar.Producer.Name,
+                    StringsId = guitar.Strings.Name
                 });
             }
-            //.ForEach(data => GuitarRecord.GuitarRecords.Add(new GuitarRecord()
-            //{
-            //    Id = data.Id,
-            //    Name = data.Name,
-            //    Created = data.ReleaseDate,
-            //    TypeId = data.TypeId,
-            //    ProducerId = data.ProducerId,
-            //    StringsId = data.StringsId
-            //}));
         }
+
+        public void Refresh()
+        {
+            guitarRecords.Clear();
+            GetAll();
+        }
+
     }
 }

@@ -25,7 +25,7 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button Grid.Row="2" FontSize="24">Odśwież</Button>
+                <Button Command="{Binding RefreshCommand}"  Grid.Row="2" FontSize="24" Content="Odśwież"/>
             </Grid>
         </Border>
     </Grid>

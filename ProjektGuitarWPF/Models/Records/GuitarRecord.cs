@@ -38,24 +38,24 @@ namespace ProjektGuitarWPF.Models.Records
             get { return created; }
             set { created = value; OnPropertyChanged("Created"); }
         }
-        private int typeId;
+        private string typeId;
 
-        public int TypeId
+        public string TypeId
         {
             get { return typeId; }
             set { typeId = value; OnPropertyChanged("TypeId"); }
         }
-        private int stringsId;
+        private string stringsId;
 
-        public int StringsId
+        public string StringsId
         {
             get { return stringsId; }
             set { stringsId = value; OnPropertyChanged("StringsId"); }
         }
 
-        private int producerId;
+        private string producerId;
 
-        public int ProducerId
+        public string ProducerId
         {
             get { return producerId; }
             set { producerId = value; OnPropertyChanged("ProducerId"); }

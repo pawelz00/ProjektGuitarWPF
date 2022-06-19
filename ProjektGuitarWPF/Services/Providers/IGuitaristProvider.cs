@@ -10,5 +10,6 @@ namespace ProjektGuitarWPF.Services.Providers
     public interface IGuitaristProvider
     {
         List<Guitarist> GetAllGuitarists();
+        void CreateGuitarist(int guitarId, Guitarist guitarist);
     }
 }

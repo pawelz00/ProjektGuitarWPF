@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ProjektGuitarWPF.Components"
+             xmlns:local="clr-namespace:ProjektGuitarWPF.Components" xmlns:viewmodels="clr-namespace:ProjektGuitarWPF.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddGuitarAndGuitaristViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="450">
     <Grid>
@@ -14,16 +14,16 @@
         <StackPanel Grid.Row="0">
             <TextBlock Margin="0 0 0 10" FontSize="20" FontWeight="Bold" TextAlignment="Center">Dodaj gitarę</TextBlock>
             <TextBlock>Nazwa</TextBlock>
-            <TextBox></TextBox>
+            <TextBox Text=""></TextBox>
             <TextBlock>Data powstania</TextBlock>
-            <TextBox></TextBox>
+            <TextBox Text=""></TextBox>
             <TextBlock>ID Producenta</TextBlock>
-            <TextBox></TextBox>
+            <TextBox Text=""></TextBox>
             <TextBlock>ID Typu</TextBlock>
-            <TextBox></TextBox>
+            <TextBox Text=""></TextBox>
             <TextBlock>ID Strun</TextBlock>
-            <TextBox></TextBox>
-            <Button>DODAJ</Button>
+            <TextBox Text=""></TextBox>
+            <Button Command="">DODAJ</Button>
         </StackPanel>
         <StackPanel Grid.Row="1">
             <TextBlock Margin="0 0 0 10" FontSize="20" FontWeight="Bold" TextAlignment="Center">Dodaj gitarzystę</TextBlock>

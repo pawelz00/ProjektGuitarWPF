@@ -17,12 +17,20 @@ namespace ProjektGuitarWPF.Services.Providers
         {
             this.contextFactory = contextFactory;
         }
+        public void CreateGuitar(Guitar guitar)
+        {
+            using (DataContext context = contextFactory.CreateDbContext())
+            {
+                context.Guitars.Add(guitar);
+                context.SaveChanges();
+            }
+        }
 
         public List<Guitar> GetAllGuitars()
         {
             using (DataContext context = contextFactory.CreateDbContext())
             {
-                return context.Guitars.ToList();
+                return context.Guitars.Include(p => p.Producer).Include(s => s.Strings).Include(gt => gt.Type).ToList();
             }
         }
     }
