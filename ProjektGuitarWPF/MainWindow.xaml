@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektGuitarWPF" xmlns:views="clr-namespace:ProjektGuitarWPF.Views"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="800" MinWidth="1200">
+        Title="ProjektWPF" MinHeight="800" MinWidth="1200">
     <Grid Margin="10 10 10 10">
         <views:GuitarsGuitaristsView/>
     </Grid>

@@ -35,7 +35,8 @@ namespace ProjektGuitarWPF.ViewModels
                 {
                     Id = guitarist.Id,
                     FullName = guitarist.FullName,
-                    DateOfBirth = guitarist.DateOfBirth
+                    DateOfBirth = guitarist.DateOfBirth,
+                    Guitar = guitarist.GuitaristsGuitars.Select(g => g.Guitar.Name).FirstOrDefault()
                 });
             }
         }

@@ -39,18 +39,26 @@ namespace ProjektGuitarWPF.Models.Records
             set { dateOfBirth = value; OnPropertyChanged("DateOfBirth"); }
         }
 
-        private ObservableCollection<GuitaristRecord> _guitaristsRecords;
-        public ObservableCollection<GuitaristRecord> GuitaristsRecords
+        private string guitar;
+
+        public string Guitar
         {
-            get
-            {
-                return _guitaristsRecords;
-            }
-            set
-            {
-                _guitaristsRecords = value;
-                OnPropertyChanged("GuitaristsRecords");
-            }
+            get { return guitar; }
+            set { guitar = value; OnPropertyChanged("Guitar"); }
         }
+
+        //private ObservableCollection<GuitaristRecord> _guitaristsRecords;
+        //public ObservableCollection<GuitaristRecord> GuitaristsRecords
+        //{
+        //    get
+        //    {
+        //        return _guitaristsRecords;
+        //    }
+        //    set
+        //    {
+        //        _guitaristsRecords = value;
+        //        OnPropertyChanged("GuitaristsRecords");
+        //    }
+        //}
     }
 }

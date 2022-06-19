@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektGuitarWPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,14 @@ using System.Windows.Shapes;
 namespace ProjektGuitarWPF.Components
 {
     /// <summary>
-    /// Logika interakcji dla klasy AddGuitarAndGuitarist.xaml
+    /// Logika interakcji dla klasy AddGuitarist.xaml
     /// </summary>
-    public partial class AddGuitarAndGuitarist : UserControl
+    public partial class AddGuitarist : UserControl
     {
-        public AddGuitarAndGuitarist()
+        public AddGuitarist()
         {
             InitializeComponent();
+            this.DataContext = new AddGuitaristViewModel();
         }
     }
 }

@@ -19,9 +19,10 @@
                 <ListView Grid.Row="1" ItemsSource="{Binding guitaristsRecords}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Id" Width="50" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                            <GridViewColumn Header="FullName" Width="150" DisplayMemberBinding="{Binding FullName}"></GridViewColumn>
-                            <GridViewColumn Header="DateOfBirth" Width="100" DisplayMemberBinding="{Binding DateOfBirth}"></GridViewColumn>
+                            <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                            <GridViewColumn Header="FullName" Width="auto" DisplayMemberBinding="{Binding FullName}"></GridViewColumn>
+                            <GridViewColumn Header="DateOfBirth" Width="auto" DisplayMemberBinding="{Binding DateOfBirth}"></GridViewColumn>
+                            <GridViewColumn Header="Guitar" Width="auto" DisplayMemberBinding="{Binding Guitar}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

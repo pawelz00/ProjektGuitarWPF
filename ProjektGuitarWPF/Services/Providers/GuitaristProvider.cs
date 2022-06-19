@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Internal;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using ProjektGuitarWPF.Database;
 using ProjektGuitarWPF.Models;
 using System;
@@ -40,7 +41,7 @@ namespace ProjektGuitarWPF.Services.Providers
         {
             using (DataContext context = contextFactory.CreateDbContext())
             {
-                return context.Guitarists.ToList();
+                return context.Guitarists.Include(g => g.GuitaristsGuitars).ThenInclude(g => g.Guitar).ToList();
             }
         }
     }

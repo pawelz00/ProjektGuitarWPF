@@ -38,6 +38,7 @@ namespace ProjektGuitarWPF.Models.Records
             get { return created; }
             set { created = value; OnPropertyChanged("Created"); }
         }
+
         private string typeId;
 
         public string TypeId

@@ -12,13 +12,23 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-
-        <components:AddGuitarAndGuitarist 
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        <components:AddGuitar
             Margin="0 0 10 0" 
-            Grid.Column="0"/>
+            Grid.Row="0"/>
+        <components:AddGuitarist
+            Margin="0 0 10 0"
+            Grid.Row="1"/>
+        </Grid>
         <components:GuitaristsListing 
-            Grid.Column="1"/>
+            Grid.Column="1"
+            Margin="0 0 5 0 "/>
         <components:GuitarsListing 
-            Grid.Column="2"/>
+            Grid.Column="2"
+            Margin="5 0 0 0 "/>
     </Grid>
 </UserControl>
