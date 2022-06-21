@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjektGuitarWPF.ViewModels
 {
+    /// <summary>
+    /// ViewModel class for MainView View
+    /// </summary>
     public class MainViewModel : ViewModelBase
     {
         

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ProjektGuitarWPF.Models.Records
 {
+    /// <summary>
+    /// DTO for Guitar model
+    /// </summary>
     public class GuitarRecord : ViewModelBase
     {
         private bool include;

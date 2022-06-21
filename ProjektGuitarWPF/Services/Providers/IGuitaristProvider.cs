@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProjektGuitarWPF.Services.Providers
 {
+    /// <summary>
+    /// Interface for working with database entities (Guitarists table)
+    /// </summary>
     public interface IGuitaristProvider
     {
         List<Guitarist> GetAllGuitarists();

@@ -11,6 +11,9 @@ using System.Windows.Input;
 
 namespace ProjektGuitarWPF.ViewModels
 {
+    /// <summary>
+    /// ViewModel class for AddGuitar View
+    /// </summary>
     public class AddGuitarViewModel
     {
         public IGuitarProvider provider;

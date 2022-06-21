@@ -7,6 +7,9 @@ using System.Windows.Input;
 
 namespace ProjektGuitarWPF.ViewModels.Commands
 {
+    /// <summary>
+    /// Helper class for creating commands
+    /// </summary>
     public class RelayCommand : ICommand
     {
         private Action action;

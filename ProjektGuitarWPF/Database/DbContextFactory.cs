@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ProjektGuitarWPF.Database
 {
+    /// <summary>
+    /// Class implementing IDesignTimeDbContextFactory interface for creating DbContext foreach request to database
+    /// </summary>
     public class DbContextFactory : IDesignTimeDbContextFactory<DataContext>
     {
         public DataContext CreateDbContext(string[] args = null)

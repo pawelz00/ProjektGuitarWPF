@@ -13,6 +13,9 @@ using System.Windows.Input;
 
 namespace ProjektGuitarWPF.ViewModels
 {
+    /// <summary>
+    /// ViewModel class for GuitarsListing View
+    /// </summary>
     public class GuitarsListingViewModel : ViewModelBase
     {
         private IGuitarProvider provider;

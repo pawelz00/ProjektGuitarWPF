@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProjektGuitarWPF.ViewModels
 {
+    /// <summary>
+    /// ViewModelBase implementing INotifyPropertyChanged interface
+    /// </summary>
     public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;

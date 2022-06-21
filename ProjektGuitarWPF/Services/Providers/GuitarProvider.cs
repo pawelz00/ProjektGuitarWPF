@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ProjektGuitarWPF.Services.Providers
 {
+    /// <summary>
+    /// Class for interacting with Guitars table in database (CRUD Operations)
+    /// </summary>
     public class GuitarProvider : IGuitarProvider
     {
         private readonly DbContextFactory contextFactory;
