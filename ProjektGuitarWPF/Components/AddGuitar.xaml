@@ -11,7 +11,7 @@
             <TextBlock>Nazwa</TextBlock>
             <TextBox Text="{Binding Name}"></TextBox>
             <TextBlock>Data powstania</TextBlock>
-            <TextBox Text="{Binding Created}"></TextBox>
+            <TextBox Text="{Binding Created, StringFormat=dd-MM-yyyy}"></TextBox>
             <TextBlock>ID Producenta</TextBlock>
             <TextBox Text="{Binding ProducerId}"></TextBox>
             <TextBlock>ID Typu</TextBlock>

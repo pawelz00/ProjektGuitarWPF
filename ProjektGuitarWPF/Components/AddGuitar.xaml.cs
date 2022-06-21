@@ -17,14 +17,16 @@ using System.Windows.Shapes;
 namespace ProjektGuitarWPF.Components
 {
     /// <summary>
-    /// Logika interakcji dla klasy AddGuitarAndGuitarist.xaml
+    /// Logika interakcji dla klasy AddGuitar.xaml
     /// </summary>
     public partial class AddGuitar : UserControl
     {
         public AddGuitar()
         {
+
             InitializeComponent();
             this.DataContext = new AddGuitarViewModel();
         }
+
     }
 }

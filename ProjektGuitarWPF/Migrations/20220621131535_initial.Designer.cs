@@ -12,8 +12,8 @@ using ProjektGuitarWPF.Database;
 namespace ProjektGuitarWPF.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220617115232_Initial")]
-    partial class Initial
+    [Migration("20220621131535_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

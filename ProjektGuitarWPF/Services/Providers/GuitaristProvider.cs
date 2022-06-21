@@ -23,17 +23,25 @@ namespace ProjektGuitarWPF.Services.Providers
         {
             using (DataContext context = contextFactory.CreateDbContext())
             {
-                var guitar = context.Guitars.Where(g => g.Id == guitarId).FirstOrDefault();
-
-                var guitaristGuitar = new GuitaristGuitar()
+                if (guitarId == default)
                 {
-                    Guitar = guitar,
-                    Guitarist = guitarist
-                };
+                    context.Add(guitarist);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    var guitar = context.Guitars.Where(g => g.Id == guitarId).FirstOrDefault();
 
-                context.Add(guitaristGuitar);
-                context.Add(guitarist);
-                context.SaveChanges();
+                    var guitaristGuitar = new GuitaristGuitar()
+                    {
+                        Guitar = guitar,
+                        Guitarist = guitarist
+                    };
+
+                    context.Add(guitaristGuitar);
+                    context.Add(guitarist);
+                    context.SaveChanges();
+                }
             }
         }
 

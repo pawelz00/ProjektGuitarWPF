@@ -26,7 +26,7 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Id" Width="auto" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                            <GridViewColumn Header="Id" Width="30" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
                             <GridViewColumn Header="FullName" Width="auto" DisplayMemberBinding="{Binding FullName}"></GridViewColumn>
                             <GridViewColumn Header="DateOfBirth" Width="auto" DisplayMemberBinding="{Binding DateOfBirth}"></GridViewColumn>
                             <GridViewColumn Header="Guitar" Width="auto" DisplayMemberBinding="{Binding Guitar}"></GridViewColumn>
