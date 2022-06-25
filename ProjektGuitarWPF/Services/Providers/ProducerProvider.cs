@@ -41,5 +41,15 @@ namespace ProjektGuitarWPF.Services.Providers
                 return context.Producers.FirstOrDefault(g => g.Id == id);
             }
         }
+
+        public bool ProducerExists(string name)
+        {
+            using (DataContext context = contextFactory.CreateDbContext())
+            {
+                if (context.Producers.Any(g => g.Name == name))
+                    return true;
+                return false;
+            }
+        }
     }
 }

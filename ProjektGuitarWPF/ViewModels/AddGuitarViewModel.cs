@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -14,7 +15,7 @@ namespace ProjektGuitarWPF.ViewModels
     /// <summary>
     /// ViewModel class for AddGuitar View
     /// </summary>
-    public class AddGuitarViewModel
+    public class AddGuitarViewModel : ViewModelBase
     {
         public IGuitarProvider provider;
         public ICommand AddGuitarCommand { get; set; }
@@ -32,14 +33,25 @@ namespace ProjektGuitarWPF.ViewModels
 
         public void AddGuitar()
         {
-            provider.CreateGuitar(new Guitar()
+            if (Name == String.Empty || Name == null || ProducerId == 0 || StringsId == 0 || TypeId == 0 || StringsId > 4 || StringsId < 0 || TypeId > 5 || TypeId < 0)
             {
-                Name = this.Name,
-                ReleaseDate = this.Created,
-                ProducerId = this.ProducerId,
-                StringsId = this.StringsId,
-                TypeId = this.TypeId,
-            });
+                return;
+            }
+
+            else
+            {
+                provider.CreateGuitar(new Guitar()
+                {
+                    Name = this.Name,
+                    ReleaseDate = this.Created,
+                    ProducerId = this.ProducerId,
+                    StringsId = this.StringsId,
+                    TypeId = this.TypeId,
+                });
+
+                Name = "Pomyślnie dodano!";
+            }
+            OnPropertyChanged(nameof(Name));
         }
     }
 }

@@ -10,6 +10,7 @@ namespace ProjektGuitarWPF.Services.Providers
     public interface IProducerProvider
     {
         Producer GetProducer(int id);
+        bool ProducerExists(string name);
         void DeleteProducer(Producer producer);
         void AddProducer(Producer producer);
     }

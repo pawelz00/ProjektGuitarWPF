@@ -30,15 +30,39 @@ namespace ProjektGuitarWPF.ViewModels
 
         public void CreateProducer()
         {
-            provider.AddProducer(new Producer()
+            if (provider.ProducerExists(Name))
             {
-                Name = this.Name
-            });
+                ProducerName = "Producent istnieje";
+            }
+            else if (Name == null || !IsAllLetters(Name))
+            {
+                ProducerName = "Błędne dane";
+            }
+            else 
+            {
+                provider.AddProducer(new Producer()
+                {
+                    Name = this.Name
+                });
+                Name = String.Empty;
+                ProducerName = "Pomyślnie dodano";
+            }
+            OnPropertyChanged(nameof(Name));
+            OnPropertyChanged(nameof(ProducerName));
         }
         public void DeleteProducer()
         {
             var producer = provider.GetProducer(Id);
-            provider.DeleteProducer(producer);
+            if (producer != null)
+            {
+                provider.DeleteProducer(producer);
+                ProducerName = "Usunięto!";
+            }
+
+            else
+                ProducerName = "Podaj właściwe ID";
+
+            OnPropertyChanged("ProducerName");
         }
         public void GetProducer()
         {
@@ -50,6 +74,16 @@ namespace ProjektGuitarWPF.ViewModels
                 ProducerName = producer.Name;
 
             OnPropertyChanged("ProducerName");
+        }
+
+        public static bool IsAllLetters(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsLetter(c))
+                    return false;
+            }
+            return true;
         }
     }
 }

@@ -45,5 +45,15 @@ namespace ProjektGuitarWPF.Services.Providers
                 context.SaveChanges();
             }
         }
+
+        public bool GuitarExists(int Id)
+        {
+            using (DataContext context = contextFactory.CreateDbContext())
+            {
+                if (context.Guitars.Any(g => g.Id == Id))
+                    return true;
+                return false;
+            }
+        }
     }
 }

@@ -14,9 +14,10 @@ namespace ProjektGuitarWPF.ViewModels
     /// <summary>
     /// ViewModel class for AddGuitarist View
     /// </summary>
-    public class AddGuitaristViewModel
+    public class AddGuitaristViewModel : ViewModelBase
     {
-        public IGuitaristProvider provider;
+        public IGuitaristProvider guitaristprovider;
+        public IGuitarProvider guitarprovider;
         public ICommand AddGuitaristCommand { get; set; }
         public string Name { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -25,16 +26,24 @@ namespace ProjektGuitarWPF.ViewModels
         public AddGuitaristViewModel()
         {
             AddGuitaristCommand = new RelayCommand(AddGuitarist);
-            provider = new GuitaristProvider(new DbContextFactory());
+            guitaristprovider = new GuitaristProvider(new DbContextFactory());
+            guitarprovider = new GuitarProvider(new DbContextFactory());
         }
 
         public void AddGuitarist()
         {
-            provider.CreateGuitarist(GuitarId, new Guitarist()
+            bool guitarExists = guitarprovider.GuitarExists(GuitarId);
+
+            if (Name == null || Name == String.Empty || GuitarId < 0 || !guitarExists)
+                return;
+
+            guitaristprovider.CreateGuitarist(GuitarId, new Guitarist()
             {
                 FullName = Name,
                 DateOfBirth = this.DateOfBirth
             });
+            Name = "Pomyślnie dodano!";
+            OnPropertyChanged(nameof(Name));
         }
     }
 }
