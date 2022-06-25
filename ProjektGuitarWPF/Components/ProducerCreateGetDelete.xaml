@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="ProjektGuitarWPF.Components.ProducerCreateGetDelete"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjektGuitarWPF.Components" xmlns:viewmodels="clr-namespace:ProjektGuitarWPF.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:ProducerCreateGetDeleteViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="450">
+    <Grid>
+        <StackPanel>
+            <Separator Margin="0 0 0 20" Background="#000000"/>
+            <TextBlock>Nazwa</TextBlock>
+            <TextBox Text="{Binding Name}"></TextBox>
+            <Button Margin="0 10 0 10" Width="200" Height="35" FontSize="18" FontWeight="Bold" Background="#2fd44a" Command="{Binding AddProducerCommand}">DODAJ PRODUCENTA</Button>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Height="20" Width="100" Grid.Column="1" Grid.Row="0" Text="{Binding Id}" HorizontalAlignment="Left"></TextBox>
+                <TextBox IsReadOnly="True" Height="20" Width="100" Grid.Column="1" Grid.Row="1" Text="{Binding ProducerName, Mode=TwoWay}" HorizontalAlignment="Left"></TextBox>
+                <Button Grid.Column="0" Grid.Row="0" Margin="0 10 0 10" Width="100" Height="35" FontSize="18" FontWeight="Bold" Background="red" Command="{Binding DeleteProducerCommand}">USUŃ</Button>
+                <Button Grid.Column="0" Grid.Row="1" Margin="0 10 0 0" Width="100" Height="35" FontSize="18" FontWeight="Bold" Background="#999999" Command="{Binding GetProducerCommand}">POKAŻ</Button>
+            </Grid>
+            <Separator Margin="0 20 0 0" Background="#000000"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

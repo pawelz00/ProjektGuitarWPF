@@ -19,6 +19,7 @@
             <TextBlock>ID Strun</TextBlock>
             <TextBox Text="{Binding StringsId}"></TextBox>
             <Button Margin="0 10 0 0" Width="200" Height="35" FontSize="20" FontWeight="Bold" Background="#2fd44a" Command="{Binding AddGuitarCommand}">DODAJ</Button>
+            
         </StackPanel>
     </Grid>
 </UserControl>

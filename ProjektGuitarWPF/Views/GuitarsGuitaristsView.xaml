@@ -14,15 +14,19 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
         <components:AddGuitar
             Margin="0 0 10 0" 
             Grid.Row="0"/>
-        <components:AddGuitarist
-            Margin="0 0 10 0"
+            <components:ProducerCreateGetDelete
+            Margin="0 20 10 0"
             Grid.Row="1"/>
+            <components:AddGuitarist
+            Margin="0 20 10 0"
+            Grid.Row="2"/>
         </Grid>
         <components:GuitaristsListing 
             Grid.Column="1"
