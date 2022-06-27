@@ -8,9 +8,16 @@ Aplikacja działa na bazie danych LocalDb (MsSqlServer).
 
 Tworzenie bazy danych: Menedżer pakietów -> update-database
 
-Brakujące elementy (ToDo): Walidacja danych, update danych, formularz dodawania gitarzyście wielu gitar.
+Możliwość dodawania gitar, producentów, gitarzystów.
+Możliwość usuwania gitar, producentów, gitarzystów.
+Możliwość wyświetlenia producentów (pojedynczo) oraz gitar i gitarzystów (lista).
+Możliwość aktualizacji gitar (update).
+
+Dodawanie gitarzysty bez gitary -> ID gitary = 0 (zero)
+
+Dodawanie, usuwanie oraz update posiadają prostą walidację danych.
 
 ---
 
-## Dostępni producenci, typy oraz rodzaje strun:
+## Dostępni producenci, typy oraz rodzaje strun (domyślnie):
 ![photo](https://github.com/pawelz00/ProjektGuitarWPF/blob/master/entities.png?raw=true)
