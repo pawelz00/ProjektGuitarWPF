@@ -34,6 +34,9 @@ namespace ProjektGuitarWPF.ViewModels
         {
             bool guitarExists = guitarprovider.GuitarExists(GuitarId);
 
+            if (GuitarId == 0)
+                guitarExists = true;
+
             if (Name == null || Name == String.Empty || GuitarId < 0 || !guitarExists)
                 return;
 

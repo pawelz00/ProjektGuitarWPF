@@ -16,5 +16,7 @@ namespace ProjektGuitarWPF.Services.Providers
         void CreateGuitar(Guitar guitar);
         void DeleteGuitar(Guitar guitar);
         bool GuitarExists(int Id);
+        bool GuitarExists(string name);
+        void UpdateGuitar(Guitar guitar);
     }
 }

@@ -55,5 +55,32 @@ namespace ProjektGuitarWPF.Services.Providers
                 return false;
             }
         }
+
+        public bool GuitarExists(string name)
+        {
+            using (DataContext context = contextFactory.CreateDbContext())
+            {
+                if (context.Guitars.Any(g => g.Name == name))
+                    return true;
+                return false;
+            }
+        }
+
+        public void UpdateGuitar(Guitar guitar)
+        {
+            using (DataContext context = contextFactory.CreateDbContext())
+            {
+                var result = context.Guitars.SingleOrDefault(g => g.Name == guitar.Name);
+                if (result != null)
+                {
+                    result.Name = guitar.Name;
+                    result.ReleaseDate = guitar.ReleaseDate;
+                    result.ProducerId = guitar.ProducerId;
+                    result.StringsId = guitar.StringsId;
+                    result.TypeId = guitar.TypeId;
+                    context.SaveChanges();
+                }
+            }
+        }
     }
 }

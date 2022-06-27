@@ -19,6 +19,7 @@ namespace ProjektGuitarWPF.ViewModels
     {
         public IGuitarProvider provider;
         public ICommand AddGuitarCommand { get; set; }
+        public ICommand UpdateGuitarCommand { get; set; }
         public string Name { get; set; }
         public DateTime Created { get; set; }
         public int ProducerId { get; set; }
@@ -27,13 +28,39 @@ namespace ProjektGuitarWPF.ViewModels
 
         public AddGuitarViewModel()
         {
+            UpdateGuitarCommand = new RelayCommand(UpdateGuitar);
             AddGuitarCommand = new RelayCommand(AddGuitar);
             provider = new GuitarProvider(new DbContextFactory());
         }
 
-        public void AddGuitar()
+        private void UpdateGuitar()
         {
             if (Name == String.Empty || Name == null || ProducerId == 0 || StringsId == 0 || TypeId == 0 || StringsId > 4 || StringsId < 0 || TypeId > 5 || TypeId < 0)
+            {
+                return;
+            }
+
+            else
+            {
+                provider.UpdateGuitar(new Guitar()
+                {
+                    Name = this.Name,
+                    ReleaseDate = this.Created,
+                    ProducerId = this.ProducerId,
+                    StringsId = this.StringsId,
+                    TypeId = this.TypeId,
+                });
+
+                Name = "Pomyślny update!";
+            }
+            OnPropertyChanged(nameof(Name));
+        }
+
+        public void AddGuitar()
+        {
+            bool nameExists = provider.GuitarExists(Name);
+
+            if (nameExists || Name == String.Empty || Name == null || ProducerId == 0 || StringsId == 0 || TypeId == 0 || StringsId > 4 || StringsId < 0 || TypeId > 5 || TypeId < 0)
             {
                 return;
             }

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border BorderBrush="Gray" BorderThickness="1">
+        <Border BorderBrush="#000000" BorderThickness="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -16,7 +16,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" FontSize="24" TextAlignment="Center" Margin="0 20 0 0" FontWeight="Bold">LISTA GITARZYSTÓW</TextBlock>
-                <ListView Grid.Row="1" ItemsSource="{Binding guitaristsRecords}">
+                <ListView Margin="1 1 1 1" Grid.Row="1" ItemsSource="{Binding guitaristsRecords}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header=" " >
@@ -27,9 +27,9 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Header="Id" Width="30" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                            <GridViewColumn Header="FullName" Width="auto" DisplayMemberBinding="{Binding FullName}"></GridViewColumn>
-                            <GridViewColumn Header="DateOfBirth" Width="auto" DisplayMemberBinding="{Binding DateOfBirth}"></GridViewColumn>
-                            <GridViewColumn Header="Guitar" Width="auto" DisplayMemberBinding="{Binding Guitar}"></GridViewColumn>
+                            <GridViewColumn Header="FullName" Width="100" DisplayMemberBinding="{Binding FullName}"></GridViewColumn>
+                            <GridViewColumn Header="DateOfBirth" Width="100" DisplayMemberBinding="{Binding DateOfBirth}"></GridViewColumn>
+                            <GridViewColumn Header="Guitar" Width="100" DisplayMemberBinding="{Binding Guitar}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
