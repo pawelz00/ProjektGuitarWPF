@@ -6,7 +6,7 @@ Technologie: WPF/XAML, Entity Framework.
 
 Aplikacja działa na bazie danych LocalDb (MsSqlServer).
 
-Tworzenie bazy danych: Menedżer pakietów -> update-database
+Tworzenie bazy danych: Konsola menedżera pakietów -> update-database
 
 Możliwość dodawania gitar, producentów, gitarzystów.
 Możliwość usuwania gitar, producentów, gitarzystów.
