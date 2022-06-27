@@ -11,7 +11,7 @@ Tworzenie bazy danych: Menedżer pakietów -> update-database
 Możliwość dodawania gitar, producentów, gitarzystów.
 Możliwość usuwania gitar, producentów, gitarzystów.
 Możliwość wyświetlenia producentów (pojedynczo) oraz gitar i gitarzystów (lista).
-Możliwość aktualizacji gitar (update).
+Możliwość aktualizacji gitar (update). Update poprzez nazwę (nazwa -> gitara którą chcemy zaktualizować).
 
 Dodawanie gitarzysty bez gitary -> ID gitary = 0 (zero)
 
